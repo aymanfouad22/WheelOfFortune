@@ -14,6 +14,7 @@ public class WheelOfFortuneMain {
         out.println("Instruction : A hidden phrase will be prompted and you will have to guess the characters of this phrase");
         List<String> phraseList = null;
         int count = 0;
+        StringBuilder goodGuesses= new StringBuilder();
         // Get the phrase from a file of phrases
         try {
             phraseList = Files.readAllLines(Paths.get("Phrases.txt"));
@@ -68,7 +69,8 @@ public class WheelOfFortuneMain {
                 out.println("Warning the character should be a letter");
             }
             for (int j = 0; j < hiddenPhrase.length(); j++) {
-                if (hiddenPhrase.charAt(j) == guess) {
+                if (hiddenPhrase.charAt(j) == guess && goodGuesses.toString().indexOf(guess) == -1) {
+                    goodGuesses.append(guess);
                     count--;
                     System.out.println(count);
                 }

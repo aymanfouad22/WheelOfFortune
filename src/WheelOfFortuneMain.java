@@ -40,7 +40,7 @@ public class WheelOfFortuneMain {
             }
 
         }
-        System.out.println(hiddenPhrase);
+        System.out.println("Current hidden phrase: "+hiddenPhrase);
 
         //Get the players guesses and prompt answers
         Scanner in = new Scanner(System.in);
@@ -77,7 +77,7 @@ public class WheelOfFortuneMain {
                 out.println("Warning the character should be a letter");
             }
             if (goodGuesses.toString().indexOf(guess1) != -1 && goodGuesses.toString().indexOf(guess2) != -1) {
-                System.out.println("Warning you have already made this guess!");
+                System.out.println("Warning: you have already made this guess!");
             }
             for (int j = 0; j < hiddenPhrase.length(); j++) {
                 if (hiddenPhrase.charAt(j) == guess1 && goodGuesses.toString().indexOf(guess1) == -1) {
@@ -95,7 +95,7 @@ public class WheelOfFortuneMain {
 
         }
         if(n==0){
-        System.out.println("You lost");
+        System.out.println("You lost! The phrase was:"+phrase);
         }else {
          System.out.println("Congratulations you won the game!");
         }

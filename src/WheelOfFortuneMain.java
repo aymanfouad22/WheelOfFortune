@@ -14,12 +14,12 @@ public class WheelOfFortuneMain {
         out.println("Instruction : A hidden phrase will be prompted and you will have to guess the characters of this phrase");
         List<String> phraseList = null;
         int count = 0;
-        StringBuilder goodGuesses= new StringBuilder();
+        StringBuilder goodGuesses = new StringBuilder();
         // Get the phrase from a file of phrases
         try {
             phraseList = Files.readAllLines(Paths.get("Phrases.txt"));
         } catch (IOException e) {
-           System.out.println(e);
+            System.out.println(e);
         }
 
         // Get a random phrase from the list
@@ -32,7 +32,7 @@ public class WheelOfFortuneMain {
         //turn the phrase characters to asterisks
         StringBuilder hiddenPhrase = new StringBuilder();
         for (int i = 0; i < phrase.length(); i++) {
-         char   ch = phrase.charAt(i);
+            char ch = phrase.charAt(i);
             if (Character.isLetter(ch)) {
                 hiddenPhrase.append('*');
                 count++;
@@ -49,37 +49,55 @@ public class WheelOfFortuneMain {
 
         while (n > 0 && count > 0) {
             boolean found = false;
-           char guess = in.next().charAt(0);
+            char guess1 = in.next().charAt(0);
+            char guess2 = ' ';
+            if (Character.isUpperCase(guess1)) {
+                guess2 = Character.toLowerCase(guess1);
+            } else {
+                guess2 = Character.toUpperCase(guess1);
+            }
             for (int i = 0; i < phrase.length(); i++) {
-                if (guess == phrase.charAt(i)) {
-                    hiddenPhrase.setCharAt(i, guess);
+                if (guess1 == phrase.charAt(i)) {
+                    hiddenPhrase.setCharAt(i, guess1);
                     found = true;
 
+                }else if(guess2 == phrase.charAt(i)){
+                    hiddenPhrase.setCharAt(i, guess2);
+                    found = true;
                 }
 
             }
             if (found) {
                 out.println(hiddenPhrase);
             }
-            if (Character.isLetter(guess) && !found) {
+            if (Character.isLetter(guess1) && !found) {
                 n--;
                 out.println("Chances left :" + n);
             }
-            if (!Character.isLetter(guess)) {
+            if (!Character.isLetter(guess1)) {
                 out.println("Warning the character should be a letter");
             }
+            if (goodGuesses.toString().indexOf(guess1) != -1 && goodGuesses.toString().indexOf(guess2) != -1) {
+                System.out.println("Warning you have already made this guess");
+            }
             for (int j = 0; j < hiddenPhrase.length(); j++) {
-                if (hiddenPhrase.charAt(j) == guess && goodGuesses.toString().indexOf(guess) == -1) {
-                    goodGuesses.append(guess);
+                if (hiddenPhrase.charAt(j) == guess1 && goodGuesses.toString().indexOf(guess1) == -1) {
+                    count--;
+                    System.out.println(count);
+                } else if (hiddenPhrase.charAt(j) == guess2 && goodGuesses.toString().indexOf(guess2) == -1) {
+
                     count--;
                     System.out.println(count);
                 }
+
+
             }
-
-
+            goodGuesses.append(guess1);
+            goodGuesses.append(guess2);
 
 
         }
-        out.println("Game is finished!");
+        System.out.println("Game has finished!");
     }
 }
+

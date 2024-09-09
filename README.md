@@ -32,8 +32,6 @@
         <p>Make sure a file named <code>Phrases.txt</code> is present in the project directory. This file should contain phrases separated by blank lines.</p>
     </section>
     <section id="usage">
-        <h2>Example Usage</h2>
-        <p>When you run the application, you will see a welcome message and instructions. Enter a single character when prompted for guesses. The game will display the updated hidden phrase and the number of attempts left.</p>
     </section>
     <section id="development">
         <h2>Development Process</h2>

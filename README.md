@@ -29,22 +29,40 @@
     </section>
     <section id="development">
         <h2>Development Process</h2>
-        <h3>Key Concepts</h3>
-        <ul>
-            <li><strong>String Manipulation:</strong> Utilized <code>StringBuilder</code> for efficient string operations.</li>
-            <li><strong>Random Phrase Selection:</strong> Used <code>Random</code> to select a phrase from the list.</li>
-            <li><strong>Character Checking:</strong> Handled case insensitivity and updated the hidden phrase.</li>
-        </ul>
-        <h3>Challenges and Solutions</h3>
-        <ul>
-            <li><strong>File Handling:</strong> Managed I/O operations with try-catch blocks.</li>
-            <li><strong>Guess Tracking:</strong> Implemented logic to handle correct and incorrect guesses.</li>
-        </ul>
-        <h3>Algorithm Overview</h3>
-        <ul>
-            <li><strong>Initialization:</strong> Hidden phrase initialized with asterisks.</li>
-            <li><strong>Processing Guesses:</strong> Updated hidden phrase based on user guesses.</li>
-        </ul>
+       <p>During development, several key issues were addressed:</p>
+    <h2>File Reading Errors</h2>
+    <p>Initially, the code failed when <code>Phrases.txt</code> was missing or incorrectly specified. This was resolved by using a <code>try-catch</code> block to handle <code>IOException</code>, ensuring user-friendly error messages:</p>
+    <pre><code>try {
+    phraseList = Files.readAllLines(Paths.get("Phrases.txt"));
+} catch (IOException e) {
+    System.out.println(e);
+}
+    </code></pre>
+    <h2>Mismatch Between Phrase and Hidden Phrase Length</h2>
+    <p>To ensure the hidden phrase correctly mirrors the original phrase's length, non-letter characters were preserved and letters were replaced with asterisks:</p>
+    <pre><code>for (int i = 0; i &lt; phrase.length(); i++) {
+    char ch = phrase.charAt(i);
+    if (Character.isLetter(ch)) {
+        hiddenPhrase.append('*');
+    } else {
+        hiddenPhrase.append(ch);
+    }
+}
+    </code></pre>
+    <h2>Guess Processing Logic</h2>
+    <p>To handle both uppercase and lowercase guesses and update the hidden phrase accordingly, the following logic was implemented:</p>
+    <pre><code>for (int i = 0; i &lt; phrase.length(); i++) {
+    if (guess1 == phrase.charAt(i)) {
+        hiddenPhrase.setCharAt(i, guess1);
+    } else if (guess2 == phrase.charAt(i)) {
+        hiddenPhrase.setCharAt(i, guess2);
+    }
+}
+    </code></pre>
+    <h2>Key Concepts Learned</h2>
+    <p>The key concepts learned include <strong>String Manipulation</strong> using <code>StringBuilder</code> for efficient updates, <strong>User Input Handling</strong> with <code>Scanner</code>, and <strong>Random Number Generation</strong> with <code>Random</code> to select phrases. The algorithm involves initializing a hidden phrase with asterisks, processing guesses to replace these asterisks, and updating attempts based on guess accuracy.</p>
+    <h2>Future Improvements</h2>
+    <p>For future improvements, optimizing guess checking with a <code>Set</code> and enhancing user feedback could further refine the user experience.</p>
     </section>
     <section id="description">
         <h2>Description of What Was Completed</h2>

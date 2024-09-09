@@ -59,8 +59,8 @@
     }
 }
     </code></pre>
-    <h2>Key Concepts Learned</h2>
-    <p>The key concepts learned include <strong>String Manipulation</strong> using <code>StringBuilder</code> for efficient updates, <strong>User Input Handling</strong> with <code>Scanner</code>, and <strong>Random Number Generation</strong> with <code>Random</code> to select phrases. The algorithm involves initializing a hidden phrase with asterisks, processing guesses to replace these asterisks, and updating attempts based on guess accuracy.</p>
+    <h2>What I Learned</h2>
+    <p>Through this project, I learned the difference between applying <strong>static</strong> methods and <strong>instance</strong> methods, and their different structures. Static methods belong to the class and can be called without creating an instance, whereas instance methods require an object of the class to be invoked. This distinction affects how data is managed and accessed within the class.</p>
     <h2>Future Improvements</h2>
     <p>For future improvements, optimizing guess checking with a <code>Set</code> and enhancing user feedback could further refine the user experience.</p>
     </section>

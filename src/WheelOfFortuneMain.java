@@ -8,6 +8,7 @@ import java .util.Scanner;
 import static java.lang.System.*;
 
 public class WheelOfFortuneMain {
+
     public static void main(String[] args) {
         int n = 5;
         out.println("******Hello and Welcome to the Wheel of Fortune!******");
@@ -17,7 +18,7 @@ public class WheelOfFortuneMain {
         StringBuilder goodGuesses = new StringBuilder();
         // Get the phrase from a file of phrases
         try {
-            phraseList = Files.readAllLines(Paths.get("Phrases.txt"));
+            phraseList = Files.readAllLines(Paths.get("/Users/ayman/IdeaProjects/WheelOfFortune/Phrases.txt"));
         } catch (IOException e) {
             System.out.println(e);
         }

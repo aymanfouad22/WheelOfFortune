@@ -85,10 +85,5 @@
     System.out.println("Count decremented. Current count: " + count);
 }
     </code></pre>
-    <p>This output allowed me to track how the number of remaining attempts changes as guesses are processed, helping to ensure that the loop behaves as expected.</p>
-    </section>
-    <footer>
-        <p><strong>License:</strong> This project is licensed under the MIT License - see the <a href="LICENSE">LICENSE</a> file for details.</p>
-    </footer>
 </body>
 </html>

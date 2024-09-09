@@ -61,15 +61,15 @@
     </code></pre>
     <h2>What I Learned</h2>
     <p>Through this project, I learned the difference between applying <strong>static</strong> methods and <strong>instance</strong> methods, and their different structures. Static methods belong to the class and can be called without creating an instance, whereas instance methods require an object of the class to be invoked. This distinction affects how data is managed and accessed within the class.</p>
-    <h2>Future Improvements</h2>
-    <p>For future improvements, optimizing guess checking with a <code>Set</code> and enhancing user feedback could further refine the user experience.</p>
     </section>
     <section id="description">
         <h2>Description of What Was Completed</h2>
         <ul>
-            <li>Implemented phrase reading and hidden phrase generation.</li>
-            <li>Managed user guesses and attempts.</li>
-            <li>Provided feedback and tracked previous guesses.</li>
+            <li>Reading the phrase from a file</li>
+            <li>Replacing the phrase with asterisks</li>
+            <li>Checking for a match between the guess and the characters in the hidden phrase while being case in sensitive</li>
+            <li>Checking if there is a mismatch between the guess and the hidden phrase characters and losing one chance</li>
+            <li>Notifying the player if he typed any non alphabetic character or repeated a good guess</li>
         </ul>
     </section>
     <section id="test-plan">

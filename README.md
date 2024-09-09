@@ -74,11 +74,18 @@
     </section>
     <section id="test-plan">
         <h2>Test Plan</h2>
-        <ul>
-            <li><strong>File Reading:</strong> Verify correct phrase reading and selection.</li>
-            <li><strong>Hidden Phrase Generation:</strong> Ensure accurate initialization with asterisks.</li>
-            <li><strong>Guess Processing:</strong> Test correct and incorrect guesses.</li>
-        </ul>
+       <p>I ran the game multiple time to ensure that the basic logic of the rules is not violated in any step Specifically:</p>
+    <h3>Counter Testing</h3>
+    <p>To make sure that the counter of failed and successful attempts are counting properly I had to print their values and correct the structure of the loops whenever a logical erorr occured, in this case count variable was decremented to keep track of how many hidden character are left in the phrase so that when it reached 0 the player will be declared as a winner</p>
+    <pre><code>if (hiddenPhrase.charAt(j) == guess1 && goodGuesses.toString().indexOf(guess1) == -1) {
+    count--;
+    System.out.println("Count decremented. Current count: " + count);
+} else if (hiddenPhrase.charAt(j) == guess2 && goodGuesses.toString().indexOf(guess2) == -1) {
+    count--;
+    System.out.println("Count decremented. Current count: " + count);
+}
+    </code></pre>
+    <p>This output allowed me to track how the number of remaining attempts changes as guesses are processed, helping to ensure that the loop behaves as expected.</p>
     </section>
     <footer>
         <p><strong>License:</strong> This project is licensed under the MIT License - see the <a href="LICENSE">LICENSE</a> file for details.</p>
